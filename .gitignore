@@ -159,3 +159,5 @@ temp_files/*
 .streamlit/secrets.toml
 venv/*
 # custom_models/*
+cache/*
+cache/
