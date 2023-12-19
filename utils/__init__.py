@@ -36,7 +36,7 @@ def exploratory_analysis(df, target_col):
     print("\n\nPrepare random forest importance")
     # Random forest importance
     feature_names = df.columns
-    forest = RandomForestClassifier(random_state=0)
+    forest = RandomForestClassifier(random_state=0, max_depth=5, verbose=100)
     forest.fit(df, target_col)
 
     start_time = time.time()
@@ -146,3 +146,5 @@ def classify_dnn(X_train, X_test, y_train, y_test, num_classes=3):
 
     scores = classifier.evaluate(X_test, y_test)
     print("\n%s: %.2f%%" % (classifier.metrics_names[1], scores[1] * 100))
+
+
