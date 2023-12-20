@@ -5,10 +5,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 import seaborn as sns
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay
 from sklearn.svm import SVC
 import tensorflow as tf
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 
 import time
 import matplotlib.pyplot as plt
@@ -107,6 +108,30 @@ def classify_svm(X_train, X_test, y_train_onehot, y_test_onehot):
     accuracy = accuracy_score(y_test_onehot, y_pred)
     print("Test Accuracy:", accuracy)
 
+
+def classify_logistic(X_train, X_test, y_train_onehot, y_test_onehot):
+    clf = LogisticRegression(random_state=0).fit(X_train, y_train_onehot)
+
+    y_pred = clf.predict(X_train)
+    accuracy = accuracy_score(y_train_onehot, y_pred)
+    print("Train Accuracy:", accuracy)
+
+    y_pred = clf.predict(X_test)
+    accuracy = accuracy_score(y_test_onehot, y_pred)
+    print("Test Accuracy:", accuracy)
+
+
+def classify_GaussianNB(X_train, X_test, y_train_onehot, y_test_onehot):
+
+    clf = GaussianNB().fit(X_train, y_train_onehot)
+
+    y_pred = clf.predict(X_train)
+    accuracy = accuracy_score(y_train_onehot, y_pred)
+    print("Train Accuracy:", accuracy)
+
+    y_pred = clf.predict(X_test)
+    accuracy = accuracy_score(y_test_onehot, y_pred)
+    print("Test Accuracy:", accuracy)
 
 def classify_dnn(X_train, X_test, y_train, y_test, num_classes=3):
     num_inputs = X_train.shape[1]
