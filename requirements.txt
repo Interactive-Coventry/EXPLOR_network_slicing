@@ -6,6 +6,11 @@ pandas==2.2.1
 scikit_learn==1.4.1.post1
 seaborn==0.13.2
 notebook==7.1.2
-tensorflow
+tensorflow==2.15.0
 cloud-tpu-client
 folium==0.14.0
+
+networkx==3.2.1
+pydot==2.0.0
+openpyxl==3.1.2
+statsmodels

@@ -11,9 +11,9 @@ dropout_rate = 0.5
 num_epochs = 100
 batch_size = 256
 
-#optimizer = keras.optimizers.RMSprop(learning_rate=learning_rate, momentum=momentum)
-#optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
-optimizer = keras.optimizers.SGD(learning_rate=learning_rate, momentum=momentum)
+#optimizer = keras.optimizers.legacy.RMSprop(learning_rate=learning_rate, momentum=momentum)
+optimizer = keras.optimizers.legacy.Adam(learning_rate=learning_rate)
+#ptimizer = keras.optimizers.legacy.SGD(learning_rate=learning_rate, momentum=momentum)
 
 def run_experiment(model, x_train, y_train):
     # Compile the model.
